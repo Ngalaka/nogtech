@@ -50,11 +50,12 @@ export default function Navbar() {
             </div>
         </nav>
 
-        <div>
+        <div className='flex justify-between items-center gap-2'>
             <button className='w-34 py-2 bg-blue-900 text-white font-bold cursor-pointer rounded-lg'>Register</button>
+             <button className='w-34 py-2 bg-orange-600 text-white font-bold cursor-pointer rounded-lg'>Enquire Now</button>
         </div>
 
-        <div className='text-black text-2xl font-bold flex justify-center items-center gap-2 hidden'>
+        <div className='text-black text-2xl font-bold  justify-center items-center gap-2 hidden'>
             <span className='text-black text-2xl font-bold'><IoClose /></span>
             <span className='text-black text-2xl font-bold'><GiHamburgerMenu /></span>
         </div>
