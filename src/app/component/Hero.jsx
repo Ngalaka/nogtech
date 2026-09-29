@@ -58,7 +58,9 @@ export default function Hero() {
 
    
 ];
-  const heroImages = ["/photo.jpg", "/photo1.jpg", "/photo2.jpg", "/photo.jpg"];
+  const heroImages = ["/pytho.jpg", "/java.jpg", "/next.svg", "/dataan.jpg", "/html.jpg", "/jscript.jpg", "/nodejs.jpg", "/tailwind.jpg", "/ux.jpg", "/mongoose.jpg", "/Multimedia.jpg", 
+    "/marketing.jpg"
+  ];
   return (
     <>
       <section className="relative min-h-[700px] overflow-hidden">
