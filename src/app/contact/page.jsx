@@ -4,6 +4,11 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { IoCallOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdWhatsapp } from "react-icons/md";
+import { IoTimeOutline } from "react-icons/io5";
+import { LuUser } from "react-icons/lu";
+import { RiOrganizationChart } from "react-icons/ri";
+
+
 export default function page() {
   const phoneNumber = "2349159533474";
 
@@ -34,9 +39,12 @@ const emailAddress = "nogtech.traininginstitute@gmail.com";
 
   return (
     <>
-      <div className="w-full h-auto bg-blue-950 py-8">
+    <div>
+
+
+      <div className="w-full h-auto bg-blue-900 py-8">
         {/* contact section */}
-        <div className="w-[80%] h-auto flex justify-between items-center gap-4 m-auto ">
+        <div className="w-[90%] h-auto flex flex-row justify-between items-center gap-4 m-auto">
           <div className="w-[50%] h-auto px-4 ">
             <div className="border-l-4 border-red-800 bg-transparent">
               <h1 className="text-xl font-extrabold text-white px-4">
@@ -61,7 +69,7 @@ const emailAddress = "nogtech.traininginstitute@gmail.com";
           <div className="w-[30%] h-auto">
             {/* call */}
             <div className="flex justify-stretch items-center gap-8 border-y border-white/50 py-4">
-              <span className="block font-extrabold text-blue-800 text-2xl">
+              <span className="block font-extrabold text-blue-200 text-2xl">
                 <IoCallOutline />
               </span>
               <div>
@@ -76,7 +84,7 @@ const emailAddress = "nogtech.traininginstitute@gmail.com";
 
             {/* email */}
             <div className="flex justify-stretch items-center gap-8 border-y border-white/50 py-4">
-              <span className="block font-extrabold text-blue-800 text-2xl">
+              <span className="block font-extrabold text-blue-200 text-2xl">
                 <MdOutlineEmail />
               </span>
               <div>
@@ -98,7 +106,7 @@ const emailAddress = "nogtech.traininginstitute@gmail.com";
 
             {/* whatsapp */}
             <div className="flex justify-stretch items-center gap-8 border-y border-white/50 py-4">
-              <span className="block font-extrabold text-blue-800 text-2xl">
+              <span className="block font-extrabold text-blue-200 text-2xl">
                 <MdWhatsapp />
               </span>
               <div>
@@ -119,6 +127,60 @@ const emailAddress = "nogtech.traininginstitute@gmail.com";
           </div>
         </div>
       </div>
+
+
+{/* */}
+        <div className="w-full h-auto bg-blue-950 py-4">
+      
+          <div className="w-[90%] h-auto flex flex-row justify-between items-center gap-4 m-auto">
+            {/* email information */}
+            <div className="w-[40%] bg-transparent">
+              <h1 className="font-extrabold text-xl text-white ">Send an enquiry</h1>
+              <p className="font-normal text-5xl text-white">Tell us what you want to achieve.</p>
+              <p className="text-white/50 text-xl py-4">The more context you share, the easier it is for admissions to recommend the right pathway and next step.</p>
+              <div className="w-[80%] h-[2px] bg-white" ></div>
+
+              {/* what happen next */}
+              <div>
+                <div className="flex justify-stretch items-center gap-4 py-4">
+                  <span className="block font-extrabold text-blue-200 text-2xl"><IoTimeOutline /></span>
+                  <p className="font-extrabold text-xl text-white ">What happens next</p>
+                </div>
+                <p className="text-white/70 text-sm py-2">Your enquiry is recorded for the admissions team. A representative will follow up using the contact details you provide.</p>
+              </div>
+            </div> 
+
+            {/* email details */}
+            <div className="w-[55%] h-auto bg-blue-900 py-4 border border-white/30 ">
+                <h1 className="font-extrabold  text-white px-4 ">Who is this training for?</h1>
+
+                {/* tag to navigate */}
+
+                <div className="w-[90%] flex justify-between items-center gap-4 mx-auto">
+                    <div className="w-[50%] h-auto bg-blue-950 border border-white/30 py-2">
+                        <span className="  block w-[40] m-auto text-3xl text-blue-200"><LuUser /></span>
+                        <p className="font-extrabold  text-white px-4 text-center">For myself</p>
+                        <p className="font-normal  text-white/40 px-4 text-center ">Course and admissions guidance</p>
+                    </div>
+
+                    <div className="w-[50%] h-auto bg-blue-950 border border-white/30 py-2">
+                     <span className="  block w-[40] m-auto text-3xl text-blue-200 py-2"><RiOrganizationChart /></span>
+                     <p className="font-extrabold  text-white px-4 text-center">For an organisation</p>
+                     <p className="font-normal  text-white/40 px-4 text-center ">Team or institutional training</p>
+                     
+                    </div>
+                </div>
+
+                {/*  */}
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+       </div>
     </>
   );
 }
