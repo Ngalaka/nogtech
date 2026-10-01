@@ -8,6 +8,7 @@ import { IoTimeOutline } from "react-icons/io5";
 import { LuUser } from "react-icons/lu";
 import { RiOrganizationChart } from "react-icons/ri";
 import Email from "../component/Email";
+import Message from "../component/Message";
 
 export default function Page() {
   const [emailType, setEmailType] = useState("myselfType");
@@ -220,8 +221,8 @@ export default function Page() {
               {/*  */}
               {/* using condition to chect the user role */}
               {emailType === "myselfType" && <Email />}
-              {/* {userRole === "sellerRole" && <SellerSignUp />}
-        {userRole === "adminRole" && <Admin />} */}
+              {emailType === "staffType" && <Message/>}
+        
             </div>
           </div>
         </div>
