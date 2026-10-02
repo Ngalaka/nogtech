@@ -11,11 +11,11 @@ import Email from "../component/Email";
 import Message from "../component/Message";
 
 export default function Page() {
-  const [emailType, setEmailType] = useState("myselfType");
+  const [emailRole, setEmailRole] = useState("myselfRole");
   // function for Role
 
   const handleRoleChange = (role) => {
-    setEmailType(role);
+    setEmailRole(role);
   };
 
   const phoneNumber = "2349159533474";
@@ -178,10 +178,10 @@ export default function Page() {
 
               <div className="w-[90%] flex justify-between items-center gap-4 mx-auto">
                 <div
-                  onClick={() => handleRoleChange("myselfType")}
+                  onClick={() => handleRoleChange("myselfRole")}
                   className={`w-[50%] h-auto  py-2 cursor-pointer
                 ${
-                  emailType === "myselfType"
+                  emailRole === "myselfRole"
                     ? "bg-blue-950 text-white border-2 border-orange-800  "
                     : "bg-blue-950 text-white border border-white/40 "
                 }`}
@@ -198,10 +198,10 @@ export default function Page() {
                 </div>
 
                 <div
-                  onClick={() => handleRoleChange("staffType")}
+                  onClick={() => handleRoleChange("staffRole")}
                   className={`w-[50%] h-auto  py-2 cursor-pointer
                 ${
-                  emailType === "staffType"
+                  emailRole === "staffRole"
                     ? "bg-blue-950 text-white border-2 border-orange-800  "
                     : "bg-blue-950 text-white border border-white/40 "
                 }`}
@@ -220,8 +220,8 @@ export default function Page() {
 
               {/*  */}
               {/* using condition to chect the user role */}
-              {emailType === "myselfType" && <Email />}
-              {emailType === "staffType" && <Message/>}
+              {emailRole === "myselfRole" && <Email />}
+              {emailRole === "staffRole" && <Message/>}
         
             </div>
           </div>

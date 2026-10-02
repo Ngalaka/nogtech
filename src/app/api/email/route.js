@@ -12,18 +12,21 @@ export const POST = async (req) => {
       campus,
       course,
       guidance,
+      organisation,
+      learners,
+      timeline,
       messages,
       emailType,
     } = await req.json();
 
-    console.log(firstname, lastname, email, mobile, campus, course, guidance, messages, emailType);
+    console.log(firstname, lastname, email, mobile, campus, course, guidance,  organisation, learners, timeline, messages, emailType);
 
     // Validate required fields
-    if (!firstname || !lastname || !email || !mobile || !campus || !course || !guidance || !messages) {
+    if (!firstname || !lastname || !email || !mobile || !campus || !course ||  !messages) {
       return Response.json(
         {
           error:
-            "Missing required fields: firstname, lastname, email, or mobile or course, campus, guidance, messages",
+            "Missing required fields: firstname, lastname, email, or mobile or course, messages",
         },
         { status: 400 }
       );
@@ -51,8 +54,11 @@ export const POST = async (req) => {
       campus,
       course,
       guidance,
+      organisation,
+      learners,
+      timeline,
       messages,
-      emailType: emailType || "myself",
+      emailRole: emailType || "myself",
     });
 
     // Check if creation failed

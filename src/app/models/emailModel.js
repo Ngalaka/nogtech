@@ -20,7 +20,7 @@ const emailSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
-
+    
     mobile: {
       type: String,
       required: true,
@@ -45,13 +45,31 @@ const emailSchema = new mongoose.Schema(
       trim: true,
     },
 
+    organisation: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    learners: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+     timeline: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
     messages: {
       type: String,
       required: true,
       trim: true,
     },
 
-    emailType: {
+    emailRole: {
       type: String,
       enum: ["myself", "staff"],
       default: "myself",

@@ -28,7 +28,13 @@ export default function Email() {
     "Digital Marketing",
   ];
 
-  const campuses = ["Port Harcourt", "Abia State", "Imo State"];
+  const campuses = [
+    "Port Harcourt",
+     "Abia State", 
+     "Imo State",
+     "Online",
+     "Not sure yet"
+    ];
 
   // destructure useForm to get register, handleSubmit, errors, and reset functions
 
@@ -55,7 +61,7 @@ export default function Email() {
         campus: data.campus,
         course: data.course,
         guidance: data.guidance,
-         messages: data. messages,
+        messages: data. messages,
         emailType: "myself",
       };
       console.log("Payload:", payload);
@@ -64,7 +70,7 @@ export default function Email() {
       console.log("Status:", res.status);
       console.log("Response:", res.data);
 
-      if (res.data.success || res.status == 201) {
+      if (res.data.success || res.status == 200) {
         router.push("/");
         reset();
       }
@@ -170,7 +176,7 @@ export default function Email() {
             {/* Preferred campus */}
             <div className="px-4 py-2">
               <label className=" block mb-2 font-bold text-white">
-                Preferred campus
+               Preferred campus
               </label>
 
               <select
@@ -223,7 +229,11 @@ export default function Email() {
                 ))}
               </select>
 
-              {errors.course && <p>{errors.course.message}</p>}
+              
+                 {errors.course && (
+              <p className="text-red-500 text-sm">{errors.course.message}</p>
+            )}
+           
             </div>
           </div>
 
@@ -234,7 +244,7 @@ export default function Email() {
             </label>
 
             <select
-              id="course"
+          
               {...register("guidance", {
                 required: "Please select aguidance",
               })}
@@ -252,14 +262,17 @@ export default function Email() {
                 </option>
               ))}
             </select>
-
-            {errors.guidance && <p>{errors.guidance.message}</p>}
+              
+               {errors.guidance && (
+              <p className="text-red-500 text-sm">{errors.guidance.message}</p>
+            )}
+           
           </div>
 
           {/* brief message */}
           <div className="px-4 py-2">
             <label className=" block mb-2 font-bold text-white">
-             Your training brief
+            Your message
             </label>
 
             <textarea
@@ -288,6 +301,10 @@ export default function Email() {
                 <IoMdArrowForward />
               </span>
             </button>
+          </div>
+
+          <div className="px-4 py-4">
+                <p className=" block mb-2 font-semibold text-white/40">By sending this information, you agree that Nogtech may contact you about this enquiry.</p>
           </div>
         </form>
       </div>
