@@ -6,9 +6,31 @@ import { useRouter } from "next/navigation";
 import { IoMdArrowForward } from "react-icons/io";
 
 export default function Email() {
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-     // destructure useForm to get register, handleSubmit, errors, and reset functions
+  // Array of dropdown items
+  const guidances = [
+    "Programme guidance",
+    "Fees and payment plans",
+    "Class dates and times",
+    "Campus visit",
+    "Application support",
+    "Other enquiry",
+  ];
+
+  // Array of dropdown items
+  const courses = [
+    "Full Stack Web Development",
+    "UI/UX Design",
+    "Python Programming",
+    "AI Automation",
+    "Data Analytics",
+    "Digital Marketing",
+  ];
+
+  const campuses = ["Port Harcourt", "Abia State", "Imo State"];
+
+  // destructure useForm to get register, handleSubmit, errors, and reset functions
 
   // use router
   const router = useRouter();
@@ -30,6 +52,10 @@ export default function Email() {
         lastname: data.lastname,
         email: data.email,
         mobile: data.mobile,
+        campus: data.campus,
+        course: data.course,
+        guidance: data.guidance,
+         messages: data. messages,
         emailType: "myself",
       };
       console.log("Payload:", payload);
@@ -38,7 +64,7 @@ export default function Email() {
       console.log("Status:", res.status);
       console.log("Response:", res.data);
 
-      if (res.data.success || res.status==201) {
+      if (res.data.success || res.status == 201) {
         router.push("/");
         reset();
       }
@@ -51,100 +77,220 @@ export default function Email() {
   return (
     <>
       <div>
-            <form action="" onSubmit={handleSubmit(onSubmit)}>
-                        {/* First Name */}
-                <div className="flex justify-between items-center gap-4 ">
-                <div className="px-4 py-2">
-                <label className=" block mb-2 font-bold text-white">First name</label>
+        <form action="" onSubmit={handleSubmit(onSubmit)}>
+          {/* First Name */}
+          <div className="flex justify-between items-center gap-4 ">
+            <div className="px-4 py-2">
+              <label className=" block mb-2 font-bold text-white">
+                First name
+              </label>
 
-                <input
-                  type="text"
-                  {...register("firstname", {
-                    required: "First name field is required",
-                  })}
-               className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800" />
+              <input
+                type="text"
+                {...register("firstname", {
+                  required: "First name field is required",
+                })}
+                className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+              />
 
-                {errors.firstname && (
-                  <p className="text-red-500 text-sm">
-                    {errors.firstname.message}
-                  </p>
-                )}
-              </div>
+              {errors.firstname && (
+                <p className="text-red-500 text-sm">
+                  {errors.firstname.message}
+                </p>
+              )}
+            </div>
 
-              {/* Last Nam */}
-                <div className="px-4 py-2">
-                <label className=" block mb-2 font-bold text-white">Last name</label>
+            {/* Last Name */}
+            <div className="px-4 py-2">
+              <label className=" block mb-2 font-bold text-white">
+                Last name
+              </label>
 
-                <input
-                  type="text"
-                  {...register("lastname", {
-                    required: "last name field is required",
-                  
-                  })}
-               className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800" />
+              <input
+                type="text"
+                {...register("lastname", {
+                  required: "last name field is required",
+                })}
+                className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+              />
 
-                {errors.lastname && (
-                  <p className="text-red-500 text-sm">
-                    {errors.lastname.message}
-                  </p>
-                )}
-              </div>
-                </div>
-                
-             {/* tell detal */}
+              {errors.lastname && (
+                <p className="text-red-500 text-sm">
+                  {errors.lastname.message}
+                </p>
+              )}
+            </div>
+          </div>
 
-             <div className="flex justify-between items-center gap-4">
-                {/* email */}
-                 <div className="px-4 py-2">
-                <label className=" block mb-2 font-bold text-white">Email address</label>
+          {/* tell detal */}
 
-                <input
-                  type="email"
-                  {...register("email", {
-                    required: "Email address field is required",
-                  })}
-               className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800" />
+          <div className="flex justify-between items-center gap-4">
+            {/* email */}
+            <div className="px-4 py-2">
+              <label className=" block mb-2 font-bold text-white">
+                Email address
+              </label>
 
-                {errors.email && (
-                  <p className="text-red-500 text-sm ">
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
+              <input
+                type="email"
+                {...register("email", {
+                  required: "Email address field is required",
+                })}
+                className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+              />
 
-                {/* mobile */}
-                <div className="px-4 py-2">
-                <label className=" block mb-2 font-bold text-white">Mobile number</label>
+              {errors.email && (
+                <p className="text-red-500 text-sm ">{errors.email.message}</p>
+              )}
+            </div>
 
-                <input
-                  type="text"
-                  {...register("mobile", {
-                    required: "mobile field is required",
-                  })}
-                className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"/>
+            {/* mobile */}
+            <div className="px-4 py-2">
+              <label className=" block mb-2 font-bold text-white">
+                Mobile number
+              </label>
 
-                {errors.mobile && (
-                  <p className="text-red-500 text-sm">
-                    {errors.mobile.message}
-                  </p>
-                )}
-              </div>
-             </div>
-             
+              <input
+                type="text"
+                {...register("mobile", {
+                  required: "mobile field is required",
+                })}
+                className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+              />
 
-  
-              <div className="w-full mx-auto lg:w-full l  flex justify-center items-center gap-2 py-2 ">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className={`w-full h-auto p-2 flex justify-center items-center gap-4 lg:p-2 rounded-lg text-white lg:w-[400px] lg:auto mx-auto font-extrabold ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
+              {errors.mobile && (
+                <p className="text-red-500 text-sm">{errors.mobile.message}</p>
+              )}
+            </div>
+          </div>
+
+          {/* course */}
+
+          <div className="flex justify-between items-center gap-4">
+            {/* Preferred campus */}
+            <div className="px-4 py-2">
+              <label className=" block mb-2 font-bold text-white">
+                Preferred campus
+              </label>
+
+              <select
+                {...register("campus", {
+                  required: "Please select a campus city",
+                })}
+                className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+              >
+                <option value="">Choose a Preferred city</option>
+
+                {campuses.map((campus, index) => (
+                  <option
+                    key={index}
+                    value={campus}
+                    className=" block mb-2 font-bold text-white"
+                  >
+                    {campus}
+                  </option>
+                ))}
+              </select>
+
+              {errors.campus && (
+                <p className="text-red-600">{errors.campus.message}</p>
+              )}
+            </div>
+
+            {/* Programme of interest */}
+            <div className="px-4 py-2">
+              <label className=" block mb-2 font-bold text-white">
+                Programme of interest
+              </label>
+
+              <select
+                id="course"
+                {...register("course", {
+                  required: "Please select a course",
+                })}
+                className="w-[300px] h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+              >
+                <option value="">Not yet sure </option>
+
+                {courses.map((course, index) => (
+                  <option
+                    key={index}
+                    value={course}
+                    className=" block mb-2 font-bold text-white"
+                  >
+                    {course}
+                  </option>
+                ))}
+              </select>
+
+              {errors.course && <p>{errors.course.message}</p>}
+            </div>
+          </div>
+
+          {/* guidance */}
+          <div className="px-4 py-4">
+            <label className=" block mb-2 font-bold text-white">
+              What would you like help with?
+            </label>
+
+            <select
+              id="course"
+              {...register("guidance", {
+                required: "Please select aguidance",
+              })}
+              className="w-full h-auto outline-none py-3  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+            >
+              <option value="">Programme guidances </option>
+
+              {guidances.map((guidance, index) => (
+                <option
+                  key={index}
+                  value={guidances}
+                  className=" block mb-2 font-bold text-white"
                 >
-                  {loading ? "Sending..." : "Send enquiry"}
-                    <span><IoMdArrowForward /></span>
-                </button>
-              </div>
-            </form>
+                  {guidance}
+                </option>
+              ))}
+            </select>
+
+            {errors.guidance && <p>{errors.guidance.message}</p>}
+          </div>
+
+          {/* brief message */}
+          <div className="px-4 py-2">
+            <label className=" block mb-2 font-bold text-white">
+             Your training brief
+            </label>
+
+            <textarea
+              name="messages"
+              {...register("messages", {
+                required: "last name field is required",
+              })}
+              placeholder="Tell us the skill you want to learn, your current experience, preperred location and schedule"
+              rows="8"
+                className="w-full h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+            ></textarea>
+
+            {errors.messages && (
+              <p className="text-red-500 text-sm">{errors.messages.message}</p>
+            )}
+          </div>
+
+          <div className="px-4 py-4">
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full h-auto p-2 flex justify-center items-center gap-4 lg:p-2 rounded-lg text-white lg:w-[400px] font-extrabold ${loading ? "bg-gray-300 cursor-not-allowed" : " bg-orange-600 hover:bg-blue-700"}`}
+            >
+              {loading ? "Sending..." : "Send enquiry"}
+              <span>
+                <IoMdArrowForward />
+              </span>
+            </button>
+          </div>
+        </form>
       </div>
     </>
-  )
+  );
 }

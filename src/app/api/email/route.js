@@ -9,17 +9,21 @@ export const POST = async (req) => {
       lastname,
       email,
       mobile,
+      campus,
+      course,
+      guidance,
+      messages,
       emailType,
     } = await req.json();
 
-    console.log(firstname, lastname, email, mobile, emailType);
+    console.log(firstname, lastname, email, mobile, campus, course, guidance, messages, emailType);
 
     // Validate required fields
-    if (!firstname || !lastname || !email || !mobile) {
+    if (!firstname || !lastname || !email || !mobile || !campus || !course || !guidance || !messages) {
       return Response.json(
         {
           error:
-            "Missing required fields: firstname, lastname, email, or mobile",
+            "Missing required fields: firstname, lastname, email, or mobile or course, campus, guidance, messages",
         },
         { status: 400 }
       );
@@ -44,6 +48,10 @@ export const POST = async (req) => {
       lastname,
       email,
       mobile,
+      campus,
+      course,
+      guidance,
+      messages,
       emailType: emailType || "myself",
     });
 
