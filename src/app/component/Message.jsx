@@ -62,7 +62,7 @@ export default function Message() {
         learners: data.learners,
         timeline: data.timeline,
         messages: data.messages,
-        emailType: "staff",
+        emailRole: "staff",
       };
       console.log("Payload:", payload);
       const res = await axios.post("/api/email", payload);

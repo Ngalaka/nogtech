@@ -11,11 +11,11 @@ import Email from "../component/Email";
 import Message from "../component/Message";
 
 export default function Page() {
-  const [emailRole, setEmailRole] = useState("myselfRole");
+  const [emailRole, setEmailTRole] = useState("myselfRole");
   // function for Role
 
   const handleRoleChange = (role) => {
-    setEmailRole(role);
+    setEmailType(role);
   };
 
   const phoneNumber = "2349159533474";

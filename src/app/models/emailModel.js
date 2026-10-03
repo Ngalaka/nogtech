@@ -20,7 +20,7 @@ const emailSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
-    
+
     mobile: {
       type: String,
       required: true,
@@ -41,28 +41,28 @@ const emailSchema = new mongoose.Schema(
 
     guidance: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
 
     organisation: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
 
     learners: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
 
-     timeline: {
+    timeline: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
-
+    
     messages: {
       type: String,
       required: true,

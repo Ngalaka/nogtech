@@ -30,11 +30,11 @@ export default function Email() {
 
   const campuses = [
     "Port Harcourt",
-     "Abia State", 
-     "Imo State",
-     "Online",
-     "Not sure yet"
-    ];
+    "Abia State",
+    "Imo State",
+    "Online",
+    "Not sure yet",
+  ];
 
   // destructure useForm to get register, handleSubmit, errors, and reset functions
 
@@ -61,8 +61,8 @@ export default function Email() {
         campus: data.campus,
         course: data.course,
         guidance: data.guidance,
-        messages: data. messages,
-        emailType: "myself",
+        messages: data.messages,
+        emailRole: "myself",
       };
       console.log("Payload:", payload);
       const res = await axios.post("/api/email", payload);
@@ -176,7 +176,7 @@ export default function Email() {
             {/* Preferred campus */}
             <div className="px-4 py-2">
               <label className=" block mb-2 font-bold text-white">
-               Preferred campus
+                Preferred campus
               </label>
 
               <select
@@ -229,11 +229,9 @@ export default function Email() {
                 ))}
               </select>
 
-              
-                 {errors.course && (
-              <p className="text-red-500 text-sm">{errors.course.message}</p>
-            )}
-           
+              {errors.course && (
+                <p className="text-red-500 text-sm">{errors.course.message}</p>
+              )}
             </div>
           </div>
 
@@ -244,7 +242,6 @@ export default function Email() {
             </label>
 
             <select
-          
               {...register("guidance", {
                 required: "Please select aguidance",
               })}
@@ -262,17 +259,16 @@ export default function Email() {
                 </option>
               ))}
             </select>
-              
-               {errors.guidance && (
+
+            {errors.guidance && (
               <p className="text-red-500 text-sm">{errors.guidance.message}</p>
             )}
-           
           </div>
 
           {/* brief message */}
           <div className="px-4 py-2">
             <label className=" block mb-2 font-bold text-white">
-            Your message
+              Your message
             </label>
 
             <textarea
@@ -282,7 +278,7 @@ export default function Email() {
               })}
               placeholder="Tell us the skill you want to learn, your current experience, preperred location and schedule"
               rows="8"
-                className="w-full h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
+              className="w-full h-auto outline-none py-2  bg-blue-950 text-white font-bold px-2 hover:outline-1 hover:border-2 border-orange-800"
             ></textarea>
 
             {errors.messages && (
@@ -304,7 +300,10 @@ export default function Email() {
           </div>
 
           <div className="px-4 py-4">
-                <p className=" block mb-2 font-semibold text-white/40">By sending this information, you agree that Nogtech may contact you about this enquiry.</p>
+            <p className=" block mb-2 font-semibold text-white/40">
+              By sending this information, you agree that Nogtech may contact
+              you about this enquiry.
+            </p>
           </div>
         </form>
       </div>

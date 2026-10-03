@@ -26,7 +26,7 @@ export const POST = async (req) => {
       return Response.json(
         {
           error:
-            "Missing required fields: firstname, lastname, email, or mobile or course, messages",
+            "Missing required fields: firstname, lastname, email, or mobile or course, campus, guidance,  organisation, learners, timeline, messages",
         },
         { status: 400 }
       );
