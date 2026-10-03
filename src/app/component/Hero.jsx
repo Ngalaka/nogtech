@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
-import Image from "next/image";
-import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import Image from 'next/image'
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination"
+import { Navigation, Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
@@ -11,6 +13,7 @@ import { CiClock2 } from "react-icons/ci";
 import { BiVideoRecording } from "react-icons/bi";
 import { TbCertificate } from "react-icons/tb";
 import { IoMdArrowRoundForward } from "react-icons/io";
+import { jobs } from '@/lib/jobs';
 
 export default function Hero() {
     const courses = [
@@ -265,11 +268,62 @@ export default function Hero() {
                 <span className="block text-blue-900 font-bold">Clear program and cohort details</span>
               </div>
             </div>
-
       </div>
-
-
      </section>
+        {/* Our learners work at */}
+        
+        <section className='w-full h-auto'>
+            <div className='w-full h-auto py-8'>
+
+               <div className='w-[40%] h-auto m-auto'> <h1 className='text-center font-bold text-blue-900 py-8 text-4xl'> Our learners work at</h1></div>
+                   <Swiper
+            // modules={[ ]}
+            modules={[Navigation, Pagination, Autoplay]}
+            // modules={[Pagination]}
+            spaceBetween={20}
+            slidesPerView={6}
+            // navigation
+            // pagination={{ clickable: true }}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+              },
+
+              768: {
+                slidesPerView: 4,
+              },
+
+              1024: {
+                slidesPerView: 7,
+              },
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            // loop={false}
+            // loop={true}
+            className="overflow-hidden"
+          >
+          
+           <div className="w-full h-auto flex justify-between items-center gap-4 ">
+              {jobs.map((job) => (
+                < SwiperSlide key={job.id} >
+                  <div className="w-full h-auto">
+                    <Image src={job.job} width={300} height={300} alt="Nogtech" className="w-[90%] h-40 mx-auto lg:w-20 lg:h-20 object-cover" />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </div>
+
+          </Swiper>
+
+
+            </div>
+              
+        </section>
+
 
       {/* Certification path */}
 
