@@ -12,7 +12,7 @@ import { GiSelfLove } from "react-icons/gi";
 import { CiClock2 } from "react-icons/ci";
 import { BiVideoRecording } from "react-icons/bi";
 import { TbCertificate } from "react-icons/tb";
-import { IoMdArrowRoundForward } from "react-icons/io";
+import { IoIosArrowRoundForward, IoMdArrowRoundForward } from "react-icons/io";
 import { jobs } from '@/lib/jobs';
 
 export default function Hero() {
@@ -531,6 +531,30 @@ export default function Hero() {
             </div>       
       </div>
 
+        {/* Top course */}
+
+              <div className='w-full h-auto bg-blue-800 py-8'>
+                {/*  */}
+                <div className='w-[90%] h-auto mx-auto flex justify-between items-center gap-4'>
+                  <div className='w-[50%] h-auto'>
+                    <Image src="/tcsch.jpg" width={300} height={300} alt='Nogtech' className='w-[500px] h-[500px] object-cover rounded-2xl'/>
+                  </div>
+
+                  <div className='w-[50%] h-auto space-y-6'>
+                    <h1 className='font-normal text-5xl text-white' >Technical training for your team</h1>
+
+                    <p className='text-white/60 text-xl'>Technical depth for your developers, plus the broader skills your 
+                      whole org needs. One platform, so you close
+                       skill gaps across the entire team instead of one corner of it.</p>
+
+                       <button className='flex justify-center items-center gap-4 font-bold text-xl rounded-2xl cursor-pointer bg-orange-600 text-white py-4 px-2'>
+                        Learn more about our skills
+                        <span className='block font-bold text-2xl'><IoIosArrowRoundForward /></span>
+                       </button>
+                  </div>
+                </div>
+              </div>
+
       {/* Introducing the Program */}
 
       <div className="w-full h-125 bg-blue-950 flex justify-between items-center gap-4 py-8">
@@ -563,8 +587,7 @@ export default function Hero() {
              <div className="w-140 h-50 bg-blue-100">
                <Image src="/partner.jpeg" width={300} height={300} alt="partiner" className="w-70 -mt-20 mx-auto"/> 
              </div>
-          </div>
-            
+          </div>    
         </div>
 
       </div>
